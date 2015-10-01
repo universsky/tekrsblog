@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-sm-8">
+		<% @articles.each do |article|  %>
+		    <div class="article_content">
+		        <h3><%= link_to article.title, article_path(article) %></h3>
+                <div align="left"><i><%= article.created_at.to_s(:db) %></i> </div>
+		        <em><%= article.content[0,300] %></em>
+		    </div>
+		<% end %>
+    </div>
+    <div class="col-sm-4">
+        <div class="right_side">
+            <h3>最新评论</h3>
+        </div>
+        <%= render "comment" %>
+    </div>
+</div>

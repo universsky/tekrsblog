@@ -1,0 +1,14 @@
+<% @comments.each do |comment| %>
+                <div class="article_comment">
+                    <pre><%= link_to comment.content, article_path(comment.article) %></pre>
+                    <i><%= comment.created_at.to_s(:db) %></i>
+
+                    <%= link_to '删除', [comment.article, comment],
+				               method: :delete,
+				               data: { confirm: 'Are you sure?' } %>
+                </div>
+
+                 
+				
+				 
+<% end %>

@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-sm-8">
+        <table class="table">
+            
+            <caption>
+                <div class="row">
+                    <div class="col-sm-6" align="left">文章列表</div>
+                    <div class="col-sm-6" align="right"><%= link_to '写文章', new_article_path %></div>
+                </div>
+            </caption>
+
+            <tbody>
+                <% @articles.each do |article| %>
+                    <tr>
+                        <td><%= link_to article.title, article_path(article) %></td>
+                        <td><%= link_to '编辑', edit_article_path(article) %></td>
+                        <td><%= link_to '删除', article_path(article),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        
+                        <td><%= article.created_at.to_s(:db) %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div> 
+</div>
